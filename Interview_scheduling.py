@@ -37,8 +37,8 @@ for i in interview_date:
 
 def email():
 
-    email_sender = 'stardustmass73@gmail.com'
-    email_password = 'ylnuitzaktxgqqfi'
+    email_sender = 'your email'
+    email_password = 'python generated password'
     email_reciever = new_email
 
     subject = 'Remainder for your Interview'
