@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="register_form" content = "width=device-width, initial-scale = 1">
+        <link href="mystyle.css.css" rel="stylesheet">
+        <title>company 2 application form</title>
+        
+    </head>
+
+    <body>
+    <div class="body eg form register">
+        <h1>Registrartion Form</h1>
+        <form id="register_form">
+            <p>Application ID:</p>
+            <input type = "text" class = "input" name= "application_id" placeholder=" application number">
+            <p>Name:</p>
+            <input type = "text" class= "input" name="name" placeholder=" Name">
+            <p>Address:</p>
+            <input type = "text" class = "input" name="address" placeholder="enter here">
+            <p>Number of Internships completed:</p>
+            <input type = "text" class = "input" name="internships_completed" placeholder="enter here">
+            <p>Gender</p>
+            <select name="gender" class="input">
+                <option value="male">male</option>
+                <option value="female">female</option>
+                <option value="others">others</option>
+            </select>
+            <p>Mail Id</p>
+            <input type = "email" class = "input" name="mail_id" placeholder="enter your mail">
+            
+            <p>languages known:</p>
+            <input type="text" class="input" name="languages_known" placeholder="enter languages known">
+            <p>cgpa:</p>
+            <input type="text" class="input" name="cgpa" placeholder="enter cgpa">
+            <p>interview_date</p>
+            <input type = "text" class= "input" name="interview_date" value="2023-01-07 12:00:00">
+
+           
+        
+            <p>Skillsets:</p>
+            <input type="text" class="input" name="skillsets" placeholder="enter skillset">
+            <div class= "input">
+                <input type="submit" value="Register" class="btn">
+            </div>
+
+        </form>
+    </div>
+    <script>
+        document
+        .querySelector("#register_form") 
+        .addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const formdata = new FormData(e.currentTarget);
+            const data = {
+               "application_id": formdata.get("application_id"),
+                "name": formdata.get("name"),
+                "address":formdata.get("address"),
+                "internships_completed":formdata.get("internships_completed"),
+                "gender":formdata.get("gender"),
+                "mail_id":formdata.get("mail_id"),
+                "languages_known":formdata.get("languages_known"),
+                "cgpa":formdata.get("cgpa"),
+                "interview_date":formdata.get("interview_date"),
+                "skillsets":formdata.get("skillsets"),
+                
+            }
+            console.log(data)
+            const res = await fetch("http://localhost:8000", {
+                method: "POST", 
+                body: JSON.stringify(data),
+            })
+            if(res.status === 200) console.log("Successfully submitted")
+            else console.log(`Status code is ${res.status}`)
+        })
+        </script>
+    </body>
+
+</html>
