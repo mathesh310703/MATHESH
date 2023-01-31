@@ -171,8 +171,7 @@ def gmail():
     speak("opening gmail")
     webbrowser.open("www.gmail.com")
 
-def punishment():
-    speak("mr. manikandan my boss maddy have plenty of works , kindly dont disturb him or else u will face admin powers ")
+
 
 def google_wikipedia():
     speak("opening wikipedia")
